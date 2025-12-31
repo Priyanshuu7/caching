@@ -1,6 +1,7 @@
 import express from "express";
 
 import userRoutes from "./routes/UserRoute";
+import postRoutes from "./routes/PostRoute";
 
 
 
@@ -14,6 +15,8 @@ app.get("/", (req, res) => {
 
 // User routes
 app.use("/users", userRoutes);
+
+app.use("/posts", postRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {
