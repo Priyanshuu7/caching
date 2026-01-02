@@ -15,6 +15,7 @@
     "@prisma/adapter-pg": "^7.0.0",
     "@prisma/client": "^7.0.0",
     "dotenv": "^17.2.3",
+    "ioredis": "^5.8.2",
     "nodemon": "^3.1.11",
     "pg": "^8.16.3"
   },
