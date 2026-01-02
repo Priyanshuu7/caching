@@ -1,12 +1,18 @@
+Here is the fixed version of the `README.md` file you provided, with the formatting corrected and the broken lists repaired:
 
 ```markdown
 # Express Caching 
 
 A high-performance Express.js API demonstrating the integration of **Prisma ORM** with **PostgreSQL** and **Redis** for efficient data fetching and caching.
 
+## Installation
 
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd caching
 
-
+```
 
 2. **Install dependencies:**
 ```bash
@@ -33,7 +39,7 @@ npx prisma migrate dev
 
 
 
-##  Running the App
+## Running the App
 
 * **Development Mode** (with nodemon and tsx):
 ```bash
@@ -42,10 +48,10 @@ npm run dev
 ```
 
 
+
 The server will start at `http://localhost:3000`.
 
-
-##  API Endpoints
+## API Endpoints
 
 ### User Routes (`/users`)
 
@@ -57,10 +63,6 @@ The server will start at `http://localhost:3000`.
 * `POST /create`: Create a new post. Automatically invalidates the `posts:all` cache.
 * `GET /fetch`: Retrieve all posts.
 * **Caching Logic**: Checks Redis first. If not found, fetches from DB and caches for 60 seconds.
-
-
-
-
 
 ```
 
