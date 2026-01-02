@@ -2,11 +2,6 @@ import { Request, Response } from "express";
 import { prisma } from "../../lib/prisma";
 import {redis} from "../../lib/redis";
 
-/**
- * CREATE POST
- * - Saves post in DB
- * - Invalidates Redis cache
- */
 export const createPost = async (req: Request, res: Response) => {
   try {
     const { title, content, userId } = req.body;
@@ -32,7 +27,6 @@ export const createPost = async (req: Request, res: Response) => {
     });
 
   } catch (error) {
-    console.error("Create post error:", error);
     return res.status(500).json({
       message: "Failed to create post",
     });
@@ -52,7 +46,6 @@ export const getPosts = async (req: Request, res: Response) => {
 
     // Get posts from DB
     const posts = await prisma.post.findMany({
-      orderBy: { id: "desc" },
     });
 
     //  Cache for 60 seconds
@@ -62,7 +55,6 @@ export const getPosts = async (req: Request, res: Response) => {
     return res.status(200).json(posts);
 
   } catch (error) {
-    console.error("Get posts error:", error);
     return res.status(500).json({
       message: "Failed to fetch posts",
     });
